@@ -21,6 +21,7 @@ routes.get('/', (req, res) => {
 
 routes.post('/report', async (req, res) => {
   const { comment, type, screenshot } = req.body;
+
   const style = `
   <style>
       body {
@@ -59,20 +60,25 @@ routes.post('/report', async (req, res) => {
     <div class="row"><h4> Type of Report : </h4> ${type}</div>
     <div class="row"><h4> Commet : </h4> ${comment}</div>
   `
-  await transport.sendMail({
-    from: "Suport Acos Services <aurelio@acos-services.com>",
-    to: "Aurélio Castro <aurelio.cos@outlook.com>",
-    subject: "New Report for Acos Services",
-    html: body
-  })
 
-  const data = await prisma.feedback.create({
-    data: {
-      type,
-      comment,
-      screenshot
-    }
-  })
+  try {
+    await transport.sendMail({
+      from: "Suport Acos Services <aurelio@acos-services.com>",
+      to: "Aurélio Castro <aurelio.cos@outlook.com>",
+      subject: "New Report for Acos Services",
+      html: body
+    })
 
-  res.status(201).json({ data })
+    const data = await prisma.feedback.create({
+      data: {
+        type,
+        comment,
+        screenshot
+      }
+    })
+    res.status(201).json({ data })
+
+  } catch (err) {
+    console.log(err)
+  }
 })
