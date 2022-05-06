@@ -13,6 +13,12 @@ const transport = nodemailer.createTransport({
   }
 });
 
+routes.get('/', (req, res) => {
+  res.status(200).json({
+    msg: "API is running"
+  })
+});
+
 routes.post('/report', async (req, res) => {
   const { comment, type, screenshot } = req.body;
   const style = `
