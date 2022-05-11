@@ -1,20 +1,13 @@
-import { Buttons, Widget, WidgetWithPopover } from "./components/Buttons";
+import { WidgetWithPopover } from "./components/Buttons";
+import { Menu } from "./components/menu/";
+import { Container } from "./components/container";
 
 export function App() {
   return (
     <div>
-      <div>
-        <span>You is Developers</span>
-        <div className="flex gap-1">
-          <Buttons text="Clique My" />
-          <Buttons text="Reload My" />
-          <Buttons text="Start My" />
-        </div>
-      </div>
-      <div>
-        {/* <Widget /> */}
-        <WidgetWithPopover />
-      </div>
+      <Menu />
+      <Container />
+      <WidgetWithPopover />
     </div>
   );
 }

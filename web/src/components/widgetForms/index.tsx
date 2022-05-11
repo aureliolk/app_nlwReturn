@@ -41,7 +41,7 @@ export function WidgetForm() {
     setFeedBackSent(false);
   }
   return (
-    <div className="bg-zinc-900 p-4 rounded-2xl relative mb-4 flex flex-col items-center shadow-lg w-[calc(100vw-2rem)] md:w-auto">
+    <div className="bg-ligth-primary dark:bg-dark-primary p-4 rounded-2xl relative mb-4 flex flex-col items-center shadow-lg w-[calc(100vw-2rem)] md:w-auto">
       {feedbackSent ? (
         <FeedbackSuccessStep onFeedbackRestart={handleRestartFeedback} />
       ) : (
@@ -57,7 +57,7 @@ export function WidgetForm() {
           )}
         </>
       )}
-      <footer className="text-xs  text-neutral-400 flex gap-1">
+      <footer className="text-xs flex gap-1 text-ligth-textsecondary dark:text-dark-textsecondary">
         Desevonvidor por
         <a
           href="https://acos-services.vercel.app"
