@@ -26,11 +26,13 @@ export function FeedbackContentStep({
   async function handleSubimtFeedback(event: FormEvent) {
     event.preventDefault();
     setIsSendingFeedBack(true);
+
     await api.post("/report", {
       type: keyValue,
       comment,
       screenshot,
     });
+
     setIsSendingFeedBack(false);
     onFeedBackSent();
   }

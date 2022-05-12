@@ -1,7 +1,8 @@
-import { ChatTeardropDots, X } from "phosphor-react";
+import { ChatTeardropDots, Trash, X } from "phosphor-react";
 import { Popover } from "@headlessui/react";
 import { useState } from "react";
 import { WidgetForm } from "./widgetForms";
+import { api } from "../lib/api";
 
 export function Widget() {
   const [isWidgetOpen, setIsWidgetOpen] = useState(false);
@@ -50,5 +51,25 @@ export function CloseButton() {
     >
       <X weight="bold" className="w-4 h-4" />
     </Popover.Button>
+  );
+}
+
+interface DeleteFeedbackProps {
+  id: string;
+}
+
+export function DeleteFeedback(id: DeleteFeedbackProps) {
+  async function DeleteFeedback() {
+    await api
+      .delete("/delete/" + id)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    console.log(id);
+  }
+
+  return (
+    <button type="button" onClick={DeleteFeedback}>
+      <Trash />
+    </button>
   );
 }
