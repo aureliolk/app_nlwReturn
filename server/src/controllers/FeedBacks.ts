@@ -9,9 +9,9 @@ export class FeedBacks {
     return res.status(200).json(result)
   };
 
-
   async newfeedback(req: Request, res: Response) {
     const { type, comment, screenshot } = req.body;
+    console.log(screenshot)
     const body =
       screenshot ? `
   ${style}
