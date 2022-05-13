@@ -58,17 +58,17 @@ interface DeleteFeedbackProps {
   id: string;
 }
 
-export function DeleteFeedback(id: DeleteFeedbackProps) {
-  async function DeleteFeedback() {
+export function DeleteFeedback({ id }: DeleteFeedbackProps) {
+  async function delfeedback(id: string) {
+    console.log(id);
     await api
-      .delete("/delete/" + id)
+      .delete(`/delete/${id}`)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
-    console.log(id);
   }
 
   return (
-    <button type="button" onClick={DeleteFeedback}>
+    <button type="button" onClick={() => delfeedback(id)}>
       <Trash />
     </button>
   );

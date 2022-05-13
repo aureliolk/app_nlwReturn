@@ -18,7 +18,6 @@ export function FeedbackContentStep({
   onFeedBackSent,
 }: feedbackTypePorps) {
   const feedbackInforType = FeedbackTypes[keyValue];
-
   const [screenshot, setScreenshot] = useState<string | null>(null);
   const [comment, setComment] = useState("");
   const [isSendingFeedBack, setIsSendingFeedBack] = useState(false);
