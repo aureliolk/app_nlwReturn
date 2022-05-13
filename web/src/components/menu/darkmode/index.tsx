@@ -8,7 +8,7 @@ export function DarkMode() {
     <>
       {theme === "dark" ? (
         <button
-          className="h-12 rounded-full p-4 bg-ligth-shover"
+          className="h-12 rounded-full p-4 bg-ligth-shover text-ligth-textprimary"
           id="theme-toggle"
           type="button"
           onClick={() => {

@@ -14,14 +14,14 @@ export const FeedbackTypes = {
       alt: "Image de Bug",
     },
   },
-  IDEA: {
+  IDEIA: {
     title: "Ideia",
     image: {
       source: ideaImageUrl,
       alt: "Image de Ideia",
     },
   },
-  OTHER: {
+  OUTROS: {
     title: "Outros",
     image: {
       source: thoughtImageUrl,
@@ -58,7 +58,7 @@ export function WidgetForm() {
         </>
       )}
       <footer className="text-xs flex gap-1 text-ligth-textsecondary dark:text-dark-textsecondary">
-        Desevonvidor por
+        Desevonvidor porkeyValue
         <a
           href="https://acos-services.vercel.app"
           target="_blank"

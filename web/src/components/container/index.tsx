@@ -32,21 +32,23 @@ export function Container() {
             Object.entries(data).map(([key, value]) => {
               return (
                 <div
-                  className="h-[310px] rounded-lg bg-ligth-secondary dark:bg-dark-secondary p-4 flex flex-col gap-2"
+                  className="h-[310px] rounded-lg bg-ligth-secondary dark:bg-dark-secondary p-4 flex flex-col gap-2 relative"
                   key={key}
                 >
-                  <div className="flex gap-2 justify-items-center bg-ligth-shover p-2 rounded">
+                  <div className="flex gap-2 justify-items-center bg-ligth-shover dark:bg-dark-shover p-2 rounded">
                     <h2 className="font-bold">Tipo Report:</h2>{" "}
                     <span>{value.type}</span>
                   </div>
-                  <div className="flex flex-col bg-ligth-shover p-2 rounded max-h-20">
+                  <div className="flex flex-col bg-ligth-shover dark:bg-dark-shover p-2 rounded h-32">
                     <h2 className="font-bold">Comentario:</h2>{" "}
                     <span>{value.comment}</span>
                   </div>
-                  <div className="flex flex-col items-center">
-                    <h2 className="font-bold">Imagen:</h2>
-                    <img className="w-28 rounded" src={value.screenshot} />
-                  </div>
+                  {value.screenshot && (
+                    <div className="flex flex-col items-center">
+                      <h2 className="font-bold">Imagen:</h2>
+                      <img className="w-28 rounded" src={value.screenshot} />
+                    </div>
+                  )}
                   <DeleteFeedback id={value.id} />
                 </div>
               );

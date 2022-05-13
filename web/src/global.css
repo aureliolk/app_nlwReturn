@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-white dark:bg-[#121212];
+  @apply bg-white dark:bg-[#121212] text-ligth-textprimary dark:text-dark-textprimary;
 }
 
 .buttonDefautl {

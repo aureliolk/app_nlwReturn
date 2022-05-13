@@ -3,6 +3,7 @@ import { Popover } from "@headlessui/react";
 import { useState } from "react";
 import { WidgetForm } from "./widgetForms";
 import { api } from "../lib/api";
+import { Loading } from "./Loading";
 
 export function Widget() {
   const [isWidgetOpen, setIsWidgetOpen] = useState(false);
@@ -28,7 +29,7 @@ export function Widget() {
 }
 export function WidgetWithPopover() {
   return (
-    <Popover className="fixed bottom-5 right-5 md:bottom-8 md:right-8 flex flex-col items-end ">
+    <Popover className="fixed bottom-5 right-5 md:bottom-9 md:right-8 flex flex-col items-end ">
       <Popover.Panel>
         <WidgetForm />
       </Popover.Panel>
@@ -59,17 +60,23 @@ interface DeleteFeedbackProps {
 }
 
 export function DeleteFeedback({ id }: DeleteFeedbackProps) {
+  const [isDelete, setIsdDelete] = useState(false);
   async function delfeedback(id: string) {
-    console.log(id);
+    setIsdDelete(true);
     await api
       .delete(`/delete/${id}`)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+    setIsdDelete(false);
   }
 
   return (
-    <button type="button" onClick={() => delfeedback(id)}>
-      <Trash />
+    <button
+      type="button"
+      className="absolute bottom-4 right-4"
+      onClick={() => delfeedback(id)}
+    >
+      {isDelete ? <Loading /> : <Trash />}
     </button>
   );
 }
